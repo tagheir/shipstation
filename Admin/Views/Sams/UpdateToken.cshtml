@@ -1,0 +1,31 @@
+﻿@{
+    var accounts = LayerDao.SamsAccountDao.GetAllAccountInfo();
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form  method="post" action="/sams/updateemailtoken">
+                    
+                    <div>
+                        <select class="form-control" name="Id">
+                            @foreach(var cc in accounts)
+                            {
+                                <option value="@cc.Id" >
+                                    @cc.Email
+                                </option>
+                            }
+                           
+                        </select>
+                    </div>
+
+                    <input type="text" class="form-control"  name="Token"  />
+                    <br />
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

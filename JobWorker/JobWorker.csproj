@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generics\Generics.csproj" />
+    <ProjectReference Include="..\HttpRequester\HttpRequester.csproj" />
+    <ProjectReference Include="..\LayerBao\LayerBao.csproj" />
+    <ProjectReference Include="..\LayerDao\LayerDao.csproj" />
+    <ProjectReference Include="..\OrderPlacer\OrderPlacer.csproj" />
+    <ProjectReference Include="..\ShipStationApi\ShipStationApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="HtmlAgilityPack" />
+    <None Remove="Microsoft.AspNetCore.Html.Abstractions" />
+    <None Remove="HtmlSanitizer" />
+    <None Remove="Modernizr" />
+    <None Remove="HtmlAgilityPack.NetCore" />
+    <None Remove="Selenium.WebDriver" />
+    <None Remove="Selenium.Support" />
+    <None Remove="Selenium.WebDriverBackedSelenium" />
+    <None Remove="DotNetSeleniumExtras.WaitHelpers" />
+    <None Remove="Selenium.WebDriver.NetCoreWebDriverFactory" />
+    <None Remove="Google.Apis.Gmail.v1" />
+    <None Remove="Microsoft.IdentityModel.Tokens" />
+    <None Remove="MimeKit" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ChromeDevTools" Version="1.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
+    <PackageReference Include="HtmlSanitizer" Version="7.1.488" />
+    <PackageReference Include="Modernizr" Version="2.8.3" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+
+    <PackageReference Include="Selenium.WebDriver.NetCoreWebDriverFactory" Version="4.0.0" />
+    <PackageReference Include="Selenium.Support" Version="4.1.1" />
+    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.57.0.2650" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.17.0" />
+    <PackageReference Include="MimeKit" Version="3.2.0" />
+  </ItemGroup>
+</Project>

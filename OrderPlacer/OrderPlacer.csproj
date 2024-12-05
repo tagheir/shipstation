@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LayerDao\LayerDao.csproj" />
+		<ProjectReference Include="..\Generics\Generics.csproj" />
+		<ProjectReference Include="..\HttpRequester\HttpRequester.csproj" />
+		<ProjectReference Include="..\GmailHelper\GmailHelper.csproj" />
+		<ProjectReference Include="..\ShipStationApi\ShipStationApi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="BJS\" />
+	  <None Remove="BJS\Models\" />
+	</ItemGroup>
+</Project>

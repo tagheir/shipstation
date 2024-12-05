@@ -1,0 +1,290 @@
+﻿@model ShipStationApi.Models.Order
+@{
+    var isOrdered = false;
+}
+<div class="row">
+    <div class="col-12">
+        <form method="get" action="/orders/search">
+            <div class="mb-1">
+                <label>
+                    Enter Order Of ShipStation
+                </label>
+                <input type="text" name="orderId" class="form-control" placeholder="Enter OrderId Of ShipStation" />
+            </div>
+            <div class="mb-1">
+                <button class="btn btn-primary">
+                    Search
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+@if (Model != null)
+{
+<form method="post" action="/orders/placeorder">
+
+    
+    <input type="hidden" name="OrderId" value="@Model.OrderId" />
+
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        @Model.OrderNumber
+                    </div>
+                    <div class="float-right">
+                        @if (Model.TagIds != null)
+                        {
+
+                            <div class="demo-inline-spacing">
+                                @foreach (var tag in Model.TagIds)
+                                {
+                                    var tagDetail = Shipstationtags.GetTag(tag);
+
+                                    <span class="badge" style="background-color:@tagDetail.Color">
+                                        @tagDetail.Name
+                                    </span>
+                                    @if ((ShipTag)tagDetail.TagId == ShipStationApi.ShipTag.Ordered)
+                                    {
+                                        isOrdered = true;
+                                    }
+                                }
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="mb-1">
+                        <p>
+                            @Model.InternalNotes
+                        </p>
+                    </div>
+                    <table class="table table-responsive mb-1">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Order Number
+                                </td>
+                                <td>
+                                    Order Date
+                                </td>
+                                <td>
+                                    UserName
+                                </td>
+                                <td>
+                                    Order Total
+                                </td>
+                                <td>
+                                    Amount Paid
+                                </td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Model.OrderNumber
+                                </td>
+                                <td>
+                                    @Model.OrderDate
+                                </td>
+                                <td>
+                                    @Model.CustomerUsername
+                                </td>
+                                <td>
+                                    @Model.OrderTotal
+                                </td>
+                                <td>
+                                    @Model.AmountPaid
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <h4>
+                        Address
+                    </h4>
+                    <table class="table table-responsive mb-1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Name
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Name
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Street 1
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Street1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Street 2
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Street2
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Street 3
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Street3
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    City
+                                </td>
+                                <td>
+                                    @Model.ShipTo.City
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    State
+                                </td>
+                                <td>
+                                    @Model.ShipTo.State
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Country
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Country
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Phone Number
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Phone
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Postal Code
+                                </td>
+                                <td>
+                                    @Model.ShipTo.PostalCode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Residential
+                                </td>
+                                <td>
+                                    @Model.ShipTo.Residential
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h4>
+                            Items
+                        </h4>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive mb-1">
+
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Name
+                                    </td>
+                                    <td>
+                                        SKU
+                                    </td>
+                                    <td>
+                                        Quantity
+                                    </td>
+                                    <td>
+                                        Unit Price
+                                    </td>
+                                    <td>
+                                        fulfillmentSku
+                                    </td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var i = 0;
+                                }
+                                @foreach (var items in Model.Items)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="OrderItemId" value="@items.OrderItemId" />
+                                            @items.Name
+                                        </td>
+                                        <td>
+                                            @items.Sku
+                                        </td>
+                                        <td>
+
+                                            <input type="number" class="form-control" name="Items[@i].Quantity" placeholder="Quantity" value="@items.Quantity" />
+                                        </td>
+                                        <td>
+                                            @items.UnitPrice
+                                        </td>
+                                        <td>
+                                            
+                                            <input type="text" name="Items[@i].Sku" value="@items.FulfillmentSku" />
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
+
+                                    { i++; }
+
+                                }
+
+                            </tbody>
+
+                        </table>
+
+
+
+                        <div class="mb-1">
+                            @if (!isOrdered)
+                            {
+                                <button type="submit" class="btn btn-primary">
+                                    Place Order
+                                </button>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+}

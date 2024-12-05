@@ -1,0 +1,46 @@
+﻿@model List<Generics.Db.SiteMetaDto>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="/sitemetas/create">
+                    <button class="btn btn-gradient-primary" >
+                        Create New
+                    </button>
+                </a>
+                
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>
+                            KEY
+                        </th>
+                        <th>
+                            VALUE
+                        </th>
+                    </tr>
+                    <tbody>
+                        @foreach (var sit in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="/sitemetas/edit/@sit.KEY">
+                                        @sit.KEY
+                                    </a>    
+                                </td>
+                                <td>
+                                        @sit.VALUE
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

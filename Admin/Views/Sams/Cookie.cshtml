@@ -1,0 +1,19 @@
+﻿<div class="container">
+
+    <form method="post" action="/sams/cookie">
+        @Html.AntiForgeryToken()
+            <input type="hidden" name="Id" value="@ViewBag.Id" />
+           <div class="mt-2">
+               <label>
+                   Cookie
+               </label>
+               <input type="text" name="cookie" placeholder="cookie" class="form-control" />
+           </div>
+            
+           <div class="mt-2">
+               <button type="submit" class="btn btn-primary"> Update</button>
+           </div>
+
+
+    </form>
+</div>

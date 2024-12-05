@@ -1,0 +1,29 @@
+﻿@model List<Generics.Db.SamsAccontDto>
+
+<div class="container">
+    
+    <ul>
+        @foreach(var acc in Model)
+        {
+           <li>
+               @acc.Email | 
+               <a href="/sams/token?id=@(acc.Id)"> Update Token </a>
+               | <a href="/sams/cookie?id=@(acc.Id)"> Update Cookie </a>
+           </li>
+           <p>
+            Token    
+           </p>
+           <p>
+            @acc.Token    
+           </p>
+
+            <p>
+            Cookie
+           </p>
+           <p>
+            @acc.Cookie   
+           </p>
+        }
+    </ul>
+   
+</div>

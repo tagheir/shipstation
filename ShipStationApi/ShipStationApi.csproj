@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChromeDevTools" Version="1.1.7" />
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Selenium.Support" Version="4.1.1" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.1.1" />
+    <PackageReference Include="Selenium.WebDriver.NetCoreWebDriverFactory" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generics\Generics.csproj" />
+    <ProjectReference Include="..\GmailHelper\GmailHelper.csproj" />
+    <ProjectReference Include="..\HttpRequester\HttpRequester.csproj" />
+    <ProjectReference Include="..\LayerDao\LayerDao.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\Tracking\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Tracking\" />
+  </ItemGroup>
+</Project>

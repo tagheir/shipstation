@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Google.Apis.Gmail.v1" />
+    <None Remove="MimeKit" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MimeKit" Version="3.2.0" />
+    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.56.0.2622" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Generics\Generics.csproj" />
+    <ProjectReference Include="..\HttpRequester\HttpRequester.csproj" />
+    <ProjectReference Include="..\LayerDao\LayerDao.csproj" />
+  </ItemGroup>
+</Project>

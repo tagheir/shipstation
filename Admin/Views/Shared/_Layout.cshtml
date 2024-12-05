@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<partial name="_Header" />
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static   menu-collapsed" data-open="click" data-menu="vertical-menu-modern" data-col="">
+
+   <partial name="BodyHeader" />
+
+    <partial name="MainMenu" />
+   
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xxl p-0">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                @RenderBody()
+
+
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+   
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="/app-assets/js/core/app-menu.js"></script>
+    <script src="/app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    
+
+    
+</body>
+<!-- END: Body-->
+
+</html>

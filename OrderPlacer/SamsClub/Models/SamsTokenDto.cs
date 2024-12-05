@@ -1,0 +1,4 @@
+﻿namespace OrderPlacer.SamsClub.Models
+{
+
+}
